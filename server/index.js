@@ -4,8 +4,6 @@ const cors = require('cors')
 const path = require("path");
 const fs = require('fs');
 
-const serverless = require('serverless-http');
-
 const {v4: uuidv4} = require('uuid');
 
 const app = express();
@@ -52,4 +50,7 @@ app.post('/bar', (request, response) => {
         })
 })
 
-module.exports.handler = serverless(app);
+app.listen(process.env.PORT || 5000, () => {
+    console.log("server started on port 5000");
+});
+
